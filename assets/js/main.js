@@ -26,6 +26,49 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 30);
 });
 
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+  const successMessage = document.getElementById("form-success");
+  const errorMessage = document.getElementById("form-error");
+  const sendButton = contactForm.querySelector('button[type="submit"]');
+
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
+
+    sendButton.disabled = true;
+    sendButton.textContent = "Sending...";
+
+    try {
+      await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        mode: "no-cors"
+      });
+
+      
+      contactForm.reset();
+      successMessage.style.display = "block";
+      
+    } catch (error) {
+      errorMessage.style.display = "block";
+
+    } finally {
+      sendButton.disabled = false;
+      sendButton.textContent = "Send Message";
+    }
+  });
+
+  contactForm.addEventListener("reset", function () {
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
+  });
+}
+
+
 /* 아래부터는 원래 있던것들 */
 
 (function() {
