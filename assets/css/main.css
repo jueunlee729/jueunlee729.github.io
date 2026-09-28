@@ -870,7 +870,6 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  background: #FFFFFF;
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -881,7 +880,7 @@ section,
 }
 
 .hero:before {
-  content: none;
+  content: "";
   background: color-mix(in srgb, var(--background-color), transparent 30%);
   position: absolute;
   inset: 0;
@@ -891,7 +890,7 @@ section,
 .hero img {
   position: absolute;
   inset: 0;
-  display: none;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
