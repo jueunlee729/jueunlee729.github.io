@@ -954,6 +954,10 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+.about {
+  --background-color: #FFFFFF;
+}
+
 .about .content h2 {
   font-weight: 700;
   font-size: 24px;
